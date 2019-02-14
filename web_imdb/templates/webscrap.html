@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+<body>
+        <div style="padding-left:16px">
+            <h1>Web Scapping on IMDB</h1>
+            <div>
+                    <ul class="nav nav-pills" role="tablist">
+                            <li class="active"><a href="all">Home</a></li>
+                            <li><a href="add">Add</a></li>
+                            <li><a href="search">Search</a></li>  
+                            <li><a href="scrap">Webscrap</a></li>       
+                    </ul>
+            </div>
+            <div>
+                <form class="form-horizontal" action="/all" method="post">
+                    <div class="form-group">
+                        <label for="sel1">Select List Type:</label>
+                        <select class="form-control" id="sel1" name="sel1">
+                          <option value="https://www.imdb.com/search/title?genres=drama&groups=top_250&sort=user_rating,desc">Top 250 movies</option>
+                          <option value="https://www.imdb.com/search/title?count=100&groups=oscar_best_picture_winners&sort=year,desc&ref_=nv_ch_osc">Oscar winners</option>
+                          <option value="https://www.imdb.com/search/title?genres=comedy&explore=title_type,genres&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=75c37eae-37a7-4027-a7ca-3fd76067dd90&pf_rd_r=VTSA3TMPFTYAN1YC10FS&pf_rd_s=center-1&pf_rd_t=15051&pf_rd_i=genre&ref_=ft_gnr_pr1_i_1">Comedy Movies</option>
+                          <option value="https://www.imdb.com/search/title?genres=action&explore=title_type,genres&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=e0da8c98-35e8-4ebd-8e86-e7d39c92730c&pf_rd_r=VTSA3TMPFTYAN1YC10FS&pf_rd_s=center-2&pf_rd_t=15051&pf_rd_i=genre&ref_=ft_gnr_pr2_i_2">Action Movies</option>
+                          <option value="https://www.imdb.com/search/title?genres=horror&explore=title_type,genres&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=75c37eae-37a7-4027-a7ca-3fd76067dd90&pf_rd_r=VTSA3TMPFTYAN1YC10FS&pf_rd_s=center-1&pf_rd_t=15051&pf_rd_i=genre&ref_=ft_gnr_pr1_i_3">Horror Movies</option>
+                          <option value="https://www.imdb.com/search/title?genres=romance&explore=title_type,genres&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=e0da8c98-35e8-4ebd-8e86-e7d39c92730c&pf_rd_r=VTSA3TMPFTYAN1YC10FS&pf_rd_s=center-2&pf_rd_t=15051&pf_rd_i=genre&ref_=ft_gnr_pr2_i_1">Romantic Movies</option>
+                        
+                        </select>
+                      </div>
+                <div class="form-group">        
+                        <div class="col-sm-offset-1 col-sm-5">
+                          <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request
 import pandas as pd
 from flask_sqlalchemy import SQLAlchemy
-from sqlite3 import IntegrityError
+from imdb_web_scrap import *
 
 
 
@@ -95,34 +95,46 @@ def delete():
     movies = Movie.query.all()
     return render_template("home.html", movies=movies)
 
+@app.route('/scrap', methods=['GET','POST'])
+def scrap():
+    """Renders the html page to scrap data from IMDB"""
+    return render_template("webscrap.html")
+
 @app.route('/all', methods=['GET','POST'])
 def send_all():
     """Renders the html page to display list of all the movies"""
-    movies = Movie.query.all()
+    url="https://www.imdb.com/search/title?genres=drama&groups=top_250&sort=user_rating,desc"
+    if request.method == 'POST':
+        if request.form :
+            if request.form.get('sel1'):
+                url=request.form.get('sel1') 
+    web_scrap(url)
+    movies = populate_from_csv()
     return render_template("home.html", movies=movies)
     
 @app.route('/', methods=['GET','POST'])
+def default_page():
+    url="https://www.imdb.com/search/title?genres=drama&groups=top_250&sort=user_rating,desc"
+    web_scrap(url)
+    movies = populate_from_csv()
+    return render_template("home.html", movies=movies)
+
 def populate_from_csv():
     """Reads and populates movie data from csv into databse, and Renders the html page to display list of all the movies"""
     df = pd.read_csv("imdb1.csv", sep=",")   
-
-    df.rename(columns={
-            'Names':'names',
-            'Links':'links',
-            'Image_links':'image_links'
-        }, inplace=True)
-    
-    for index, row in df.iterrows():
-            movie_db = Movie.query.filter_by(names=row['names']).first()
+    for row in df.iterrows():
+            movie_db = Movie.query.filter_by(names=row[1]['names']).first()
             if not movie_db:
-                movie = Movie(names=row['names'],
-                            links=row['links'], 
-                            image_links=row['image_links'])
+                movie = Movie(names=row[1]['names'],
+                            links=row[1]['links'], 
+                            image_links=row[1]['image_links'])
                 db.session.add(movie)
-                db.session.commit()
-         
+                db.session.commit()         
     movies = Movie.query.all()
-    return render_template("home.html", movies=movies)
+    return movies
+
+def web_scrap(url):
+    scrap_IMDB_page(url)
 
 if __name__ == '__main__':
     app.run()

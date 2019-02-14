@@ -25,8 +25,11 @@ def scrap_IMDB_page(url):
 			"image_links": img_links
 		})
 	if os.path.isfile('./imdb1.csv'):
-		os.remove("imdb1.csv")	
+		os.remove("imdb1.csv")
+	if os.path.isfile('./imdb1.json'):
+    		os.remove("imdb1.json")		
 	imdb_df.to_csv('imdb1.csv')
+	imdb_df.to_json('imdb1.json')
 
 
 

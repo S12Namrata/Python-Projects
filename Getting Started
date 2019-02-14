@@ -1,5 +1,17 @@
-pip install virtualenv
-makedir imdbApp
-virtualenv venv
-cd venv
-git clone https://github.com/S12Namrata/Python-Projects.git
+
+Commands to Execute Code
+
+
+
+Step 1.	  Install virtualenv: "pip install virtualenv"
+Step 2.	  Make a directory: “makedir imdbApp”
+Step 3.	  Set up a virtual environment for Project: “virtualenv venv”
+Step 4.	  Go in to folder venv: “cd venv”
+Step 5.	  Clone git repository: “git clone https://github.com/S12Namrata/Python-Projects.git”
+Step 6.	  Install Pandas: “pip install pandas”
+Step 7.	  Install Flask: “pip install flask”
+Step 8.	  Install sqlalchemy: “pip install sqlalchemy”
+Step 9.	  Go to venv>bin
+Step 10.	Activate virtual environment: “. activate”
+Step 11.	Go to venv>Python-Projects>web_imdb
+Step 12.	Execute the code: “python imdb_core.py”

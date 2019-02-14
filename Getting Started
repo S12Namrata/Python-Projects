@@ -4,7 +4,7 @@ Commands to Execute Code
 
 
 Step 1.	  Install virtualenv: "pip install virtualenv"
-Step 2.	  Make a directory: “makedir imdbApp”
+Step 2.	  Make a directory: “mkdir imdbApp”
 Step 3.	  Set up a virtual environment for Project: “virtualenv venv”
 Step 4.	  Go in to folder venv: “cd venv”
 Step 5.	  Clone git repository: “git clone https://github.com/S12Namrata/Python-Projects.git”

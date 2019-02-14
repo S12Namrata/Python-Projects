@@ -13,5 +13,6 @@ Step 8.	Activate virtual environment: “. activate” or “activate.bat”
 Step 9.	Install Pandas: “pip install pandas”
 Step 10.	Install Flask: “pip install flask”
 Step 11.	Install sqlalchemy: “pip install sqlalchemy”
-Step 12.	Go to venv>Python-Projects>web_imdb
-Step 13.	Execute the code: “python imdb_core.py”
+Step 12.	Install Flask-sqlalchemy: “pip install flask-sqlalchemy”
+Step 13.	Go to venv>Python-Projects>web_imdb
+Step 14.	Execute the code: “python imdb_core.py”
